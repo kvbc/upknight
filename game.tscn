@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://fdml2sou7arv"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_74lwc"]
+[ext_resource type="Script" path="res://world.gd" id="1_aj71m"]
+[ext_resource type="Texture2D" uid="uid://d2cw1lro8uyaf" path="res://knight.png" id="1_crv8n"]
+[ext_resource type="Texture2D" uid="uid://c5xb01b1ybwga" path="res://wall.png" id="2_3g2qh"]
+[ext_resource type="Texture2D" uid="uid://bnwn02bl8mb5t" path="res://background.png" id="3_ovxq4"]
+[ext_resource type="AudioStream" uid="uid://cy0alu1waxekd" path="res://506848__oymaldonado__jazzy-loop-soundtrack.wav" id="6_oclm7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ibyv5"]
+texture = ExtResource("2_3g2qh")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n4dsj"]
+texture = ExtResource("3_ovxq4")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_vewnl"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_ibyv5")
+sources/1 = SubResource("TileSetAtlasSource_n4dsj")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dedm"]
+size = Vector2(45, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evlkm"]
+size = Vector2(77, 20)
+
+[node name="game" type="Node2D"]
+
+[node name="world" type="Node2D" parent="."]
+script = ExtResource("1_aj71m")
+
+[node name="camera" type="Camera2D" parent="world"]
+current = true
+zoom = Vector2(0.5, 0.5)
+rotation_smoothing_speed = 50.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="tilemap" type="TileMap" parent="world"]
+position = Vector2(1, -1)
+tile_set = SubResource("TileSet_vewnl")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65529, 0, 0, -65536, 0, 0, -131072, 0, 0, -131065, 0, 0, -65530, 0, 0, -65531, 0, 0, -65532, 0, 0, -65533, 0, 0, -65534, 0, 0, -65535, 0, 0, -131071, 1, 0, -131070, 1, 0, -131069, 1, 0, -131068, 1, 0, -131067, 1, 0, -131066, 1, 0)
+
+[node name="player" type="CharacterBody2D" parent="world"]
+position = Vector2(500, -215)
+script = ExtResource("1_74lwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="world/player"]
+texture_filter = 1
+texture = ExtResource("1_crv8n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/player"]
+position = Vector2(-0.5, 22.5)
+shape = SubResource("RectangleShape2D_0dedm")
+
+[node name="can_jump" type="Area2D" parent="world/player"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/player/can_jump"]
+position = Vector2(0, 60)
+shape = SubResource("RectangleShape2D_evlkm")
+
+[node name="furniture" type="Node2D" parent="world"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="world"]
+stream = ExtResource("6_oclm7")
+volume_db = -40.0

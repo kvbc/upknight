@@ -1,0 +1,43 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "CharacterBody2D",
+"class": &"Furniture",
+"language": &"GDScript",
+"path": "res://furniture.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"Player",
+"language": &"GDScript",
+"path": "res://player.gd"
+}]
+_global_script_class_icons={
+"Furniture": "",
+"Player": ""
+}
+
+[application]
+
+config/name="upknight"
+run/main_scene="res://game.tscn"
+config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Signals="*res://signals.gd"
+UI="*res://UI.tscn"
+Global="*res://global.gd"
+Bg="*res://bg.tscn"
+
+[display]
+
+window/stretch/mode="canvas_items"

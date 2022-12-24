@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://vqv85jdkntm6"]
+
+[ext_resource type="Script" path="res://UI.gd" id="1_dipml"]
+[ext_resource type="Script" path="res://dead.gd" id="2_gbaua"]
+[ext_resource type="Texture2D" uid="uid://24n187251pea" path="res://retry.png" id="2_pakcr"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dipml")
+
+[node name="dead" type="Control" parent="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_gbaua")
+
+[node name="ColorRect" type="ColorRect" parent="Control/dead"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.431373)
+
+[node name="Label" type="Label" parent="Control/dead"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.0
+offset_top = -148.0
+offset_right = 201.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 50
+text = "You got crushed!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control/dead"]
+offset_left = 467.0
+offset_top = 315.0
+offset_right = 603.0
+offset_bottom = 451.0
+icon = ExtResource("2_pakcr")
+flat = true
+
+[node name="Label" type="Label" parent="Control"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -370.0
+offset_top = 18.0
+offset_right = -16.0
+offset_bottom = 104.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "Score: 0"
+horizontal_alignment = 2
