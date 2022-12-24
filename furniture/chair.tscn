@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddxoc0y3woqt3"]
+
+[ext_resource type="Texture2D" uid="uid://cplhjbrexint3" path="res://chair.png" id="1_0ayht"]
+[ext_resource type="Script" path="res://furniture.gd" id="1_70y84"]
+[ext_resource type="AudioStream" uid="uid://q27xgdij72r0" path="res://503554__robinhood76__08191-heavy-stones-falling.wav" id="3_ndhtw"]
+
+[node name="chair" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_70y84")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0ayht")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-28, 124, -46, 124, -47, 32, 33, 32, 31, -97, 54, -96, 55, 126, 35, 127, 31, 66, -26, 67)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ndhtw")
+volume_db = -20.0

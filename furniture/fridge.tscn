@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcds08qg3g13p"]
+
+[ext_resource type="Texture2D" uid="uid://b2joyxo8fww5y" path="res://fridge.png" id="1_ewlcv"]
+[ext_resource type="Script" path="res://furniture.gd" id="1_yl5nh"]
+[ext_resource type="AudioStream" uid="uid://q27xgdij72r0" path="res://503554__robinhood76__08191-heavy-stones-falling.wav" id="3_vw427"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1uc8l"]
+size = Vector2(120, 247)
+
+[node name="fridge" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_yl5nh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ewlcv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1uc8l")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vw427")
+volume_db = -20.0
