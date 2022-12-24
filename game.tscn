@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d2cw1lro8uyaf" path="res://knight.png" id="1_crv8n"]
 [ext_resource type="Texture2D" uid="uid://c5xb01b1ybwga" path="res://wall.png" id="2_3g2qh"]
 [ext_resource type="Texture2D" uid="uid://bnwn02bl8mb5t" path="res://background.png" id="3_ovxq4"]
-[ext_resource type="AudioStream" uid="uid://cy0alu1waxekd" path="res://506848__oymaldonado__jazzy-loop-soundtrack.wav" id="6_oclm7"]
+[ext_resource type="AudioStream" uid="uid://bp6ht51bhww0c" path="res://506848__oymaldonado__jazzy-loop-soundtrack.mp3" id="6_ww15n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ibyv5"]
 texture = ExtResource("2_3g2qh")
@@ -76,5 +76,5 @@ shape = SubResource("RectangleShape2D_evlkm")
 [node name="furniture" type="Node2D" parent="world"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="world"]
-stream = ExtResource("6_oclm7")
+stream = ExtResource("6_ww15n")
 volume_db = -40.0
